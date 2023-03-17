@@ -2,6 +2,7 @@ package io.devs.asenvironmentservice.controllers
 
 import io.devs.asenvironmentservice.dto.CrmRequestDto
 import io.devs.asenvironmentservice.dto.CrmRequestItemDto
+import io.devs.asenvironmentservice.enums.CrmRequestStates
 import io.devs.asenvironmentservice.services.CrmRequestService
 import org.springframework.web.bind.annotation.*
 
@@ -36,6 +37,16 @@ class CrmRequestController(private val crmRequestService: CrmRequestService) {
         @PathVariable("itemId") itemId: Long
     ): CrmRequestItemDto {
         return crmRequestService.getCrmRequestItem(requestId, itemId);
+    }
+
+    @PostMapping("{requestId}/set-state/in-production")
+    fun setStateInProduction(@PathVariable("requestId") requestId: Long) {
+        return crmRequestService.setRequestState(requestId, CrmRequestStates.IN_PRODUCTION);
+    }
+
+    @PostMapping("{requestId}/set-state/closed")
+    fun setStateClosed(@PathVariable("requestId") requestId: Long) {
+        return crmRequestService.setRequestState(requestId, CrmRequestStates.CLOSED);
     }
 
     @PutMapping("{requestId}/items/{itemId}/add-execution-qty/{addingQuantity}")

@@ -219,6 +219,13 @@ class CrmRequestService(private val dsl: DSLContext) {
             } ?: CrmRequestItemDto();
     }
 
+    fun setRequestState(requestId: Long, state: CrmRequestStates) {
+        dsl.transaction { config ->
+            request_SetStateCode(config, requestId, state.code, false);
+            request_AfterEdit(config, requestId);
+        }
+    }
+
     fun addRequestItemExecutionQty(requestId: Long, itemId: Long, addingQuantity: Long): CrmRequestItemDto {
         dsl.transaction { config ->
             val reqItem: CrmRequestItemDto = getCrmRequestItem(requestId, itemId);
