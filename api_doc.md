@@ -206,7 +206,7 @@
 
 ---
 
-### POST `/crm/requests/set-state/in-production`
+### POST `/crm/requests/{requestId}/set-state/in-production`
 
 ---
 
@@ -222,7 +222,7 @@
 
 ---
 
-### POST `/crm/requests/set-state/closed`
+### POST `/crm/requests/{requestId}/set-state/closed`
 
 ---
 
