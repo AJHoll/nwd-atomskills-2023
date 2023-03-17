@@ -206,6 +206,38 @@
 
 ---
 
+### POST `/crm/requests/set-state/in-production`
+
+---
+
+#### Описание
+
+```
+Устанавливает состояние заявки в "В производстве"
+```
+
+#### Параметры
+
+- **requestId: Long** - идентификатор заявки
+
+---
+
+### POST `/crm/requests/set-state/closed`
+
+---
+
+#### Описание
+
+```
+Устанавливает состояние заявки в "Закрыто"
+```
+
+#### Параметры
+
+- **requestId: Long** - идентификатор заявки
+
+---
+
 ### PUT `/crm/requests/{requestId}/items/{itemId}/add-execution-qty/{addingQuantity}`
 
 ---
