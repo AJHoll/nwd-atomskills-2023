@@ -131,7 +131,7 @@ class CrmRequestService(private val dsl: DSLContext) {
                 CrmRequestItemDto(
                     id = record.get(REQUEST_ITEM.ID),
                     request = CrmRequestDto(
-                        id = record.get(REQUEST.ID),
+                        id = record.get(REQUEST_ITEM.ID_REQUEST),
                         number = record.get(REQUEST.S_NUMBER),
                         date = record.get(REQUEST.D_DATE),
                         contractor = ContractorDto(
@@ -191,7 +191,7 @@ class CrmRequestService(private val dsl: DSLContext) {
                 CrmRequestItemDto(
                     id = record.get(REQUEST_ITEM.ID),
                     request = CrmRequestDto(
-                        id = record.get(REQUEST.ID),
+                        id = record.get(REQUEST_ITEM.ID_REQUEST),
                         number = record.get(REQUEST.S_NUMBER),
                         date = record.get(REQUEST.D_DATE),
                         contractor = ContractorDto(
